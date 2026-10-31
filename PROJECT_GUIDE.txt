@@ -1,0 +1,31 @@
+ATTRITRACK — PROJECT GUIDE
+
+Project title: HR Analytics & Employee Feedback System (AttriTrack)
+Platform: Python Flask web application
+Database: SQLite
+Frontend: HTML, CSS, JavaScript
+
+PURPOSE
+AttriTrack provides a small HR workspace to view employee information, collect employee feedback, review workforce indicators, and export employee data. It demonstrates how basic analytics can support HR reporting.
+
+MODULES
+1. Public home and role-based login
+2. HR/Admin dashboard
+3. Employee dashboard
+4. Employee management
+5. Feedback submission and review
+6. CSV data export
+7. Rule-based risk indicator for demonstration
+
+HOW TO RUN
+Follow the Quick Start in README.txt. The local website address is http://127.0.0.1:5000.
+
+DEMO ACCOUNTS
+Admin: admin / Admin@123
+Employee: EMP001 through EMP050 / Emp@123
+
+DATA & ETHICS
+All included employee records are fictional. The risk indicator is rule-based and has not been trained or validated as a predictive ML model. It is for classroom demonstration only.
+
+VIVA PREPARATION
+Be ready to explain: Flask routes, HTML templates, CSS, SQLite tables, login/session handling, feedback flow, dashboard KPIs, CSV export, and how the demonstration risk score is calculated. Explain that a genuine ML predictor would require a suitable dataset, preprocessing, model training, testing, metrics, and responsible evaluation.
