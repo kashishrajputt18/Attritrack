@@ -1,0 +1,13 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}AttriTrack{% endblock %} | People Intelligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{url_for('static',filename='style.css')}}"></head><body>
+{% if current_role %}<div class="shell"><aside class="sidebar"><a class="brand" href="{{url_for('dashboard') if current_role=='admin' else url_for('employee')}}"><span class="mark">A</span><span>Attri<span class="light">Track</span><small>PEOPLE INTELLIGENCE</small></span></a>
+<div class="side-label">WORKSPACE</div>
+{% if current_role=='admin' %}<a class="nav {% if request.endpoint=='dashboard' %}active{% endif %}" href="{{url_for('dashboard')}}">▦　Overview</a><a class="nav" href="{{url_for('employees_page')}}">♙　Employees</a><a class="nav" href="{{url_for('dashboard')}}#feedback">▤　Feedback insights</a><a class="nav" href="{{url_for('export')}}">⇩　Export data</a>
+{% else %}<a class="nav active" href="{{url_for('employee')}}">▦　My overview</a><a class="nav" href="{{url_for('feedback')}}">✎　Share feedback</a>{% endif %}
+<div class="side-bottom"><div class="secure">●　Secure workspace<small>Protected account access</small></div><a class="nav" href="{{url_for('logout')}}">↗　Sign out</a></div></aside>
+<main class="main"><header class="topbar"><div><small>ATTRITRACK / {{'HR PORTAL' if current_role=='admin' else 'EMPLOYEE PORTAL'}}</small><h2>{% block heading %}Workspace{% endblock %}</h2></div><div class="user"><span>{{(current_user or 'U')[0]|upper}}</span><div><b>{{current_user}}</b><small>{{'Administrator' if current_role=='admin' else 'Employee'}}</small></div></div></header>
+<section class="content">{% with msgs=get_flashed_messages(with_categories=true) %}{% for cat,msg in msgs %}<div class="flash {{cat}}">{{msg}}</div>{% endfor %}{% endwith %}{% block content %}{% endblock %}</section><footer>© 2026 AttriTrack · People analytics, made clearer.</footer></main></div>
+{% else %}{% with msgs=get_flashed_messages(with_categories=true) %}{% for cat,msg in msgs %}<div class="public-flash {{cat}}">{{msg}}</div>{% endfor %}{% endwith %}{% block public %}{% endblock %}{% endif %}
+<script src="{{url_for('static',filename='app.js')}}"></script></body></html>
