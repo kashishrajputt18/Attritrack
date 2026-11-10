@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",()=>{document.querySelectorAll(".flash,.public-flash").forEach(x=>setTimeout(()=>x.classList.add("fade"),4500));});
